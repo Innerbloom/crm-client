@@ -13,14 +13,9 @@ export class EchartsComponent implements OnInit {
   sideNavStatus: boolean = false;
   subscription!: Subscription;
 
+
+  myChart = echarts.init(document.getElementById('main')!);
   option!: EChartsOption;
-
-
-/*  dom = document.getElementById('main')!;
-  myChart = echarts.init(this.dom, {
-    renderer: 'canvas',
-    useDirtyRect: false
-  })*/
 
   constructor(private dataService: DataService) { }
 
@@ -33,7 +28,29 @@ export class EchartsComponent implements OnInit {
 
   private initBasicEchart(data: Logs[]) {
 
-    const result: any = {};
+    this.myChart.setOption({
+      title: {
+        text: 'ECharts Getting Started Example'
+      },
+      tooltip: {},
+      xAxis: {
+        data: ['shirt', 'cardigan', 'chiffon', 'pants', 'heels', 'socks']
+      },
+      yAxis: {},
+      series: [
+        {
+          name: 'sales',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        }
+      ]
+    });
+  }
+}
+
+
+
+/*    const result: any = {};
 
     data.forEach(el => {
       //const date = el.date.toDateString().substring(0, 10);
@@ -49,29 +66,7 @@ export class EchartsComponent implements OnInit {
           result[el.event] += 1;
         }
       }
-    });
-
-    this.option = {
-      xAxis: {
-        type: "category",
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    },
-      yAxis: {
-        type: "value"
-      },
-      series: [
-        {
-          data: [12, 25, 15, 17, 85],
-          type: "bar",
-        }
-      ]
-    }
-  }
-}
-
-
-
-
+    });*/
 
 /*
 const sortData = Object.keys(result).reduce((acc, key) => {
