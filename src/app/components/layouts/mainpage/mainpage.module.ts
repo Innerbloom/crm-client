@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MainpageDashboardComponent } from './components/mainpage.dashboard/mainpage.dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EchartsComponent } from './components/logs/echarts/echarts.component';
+import {NgxEchartsModule} from "ngx-echarts";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EchartsComponent } from './components/logs/echarts/echarts.component';
     ],
     imports: [
         CommonModule,
-        MainpageRoutingModule
+        MainpageRoutingModule,
+        NgxEchartsModule
     ]
 })
 export class MainpageModule { }

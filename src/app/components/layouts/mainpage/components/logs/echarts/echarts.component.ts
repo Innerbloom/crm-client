@@ -15,6 +15,13 @@ export class EchartsComponent implements OnInit {
 
   option!: EChartsOption;
 
+
+/*  dom = document.getElementById('main')!;
+  myChart = echarts.init(this.dom, {
+    renderer: 'canvas',
+    useDirtyRect: false
+  })*/
+
   constructor(private dataService: DataService) { }
 
 
@@ -24,25 +31,59 @@ export class EchartsComponent implements OnInit {
     })
   }
 
-  private initBasicEchart(charData: Logs[]) {
-    console.log(JSON.stringify(charData))
+  private initBasicEchart(data: Logs[]) {
+
+    const result: any = {};
+
+    data.forEach(el => {
+      //const date = el.date.toDateString().substring(0, 10);
+      if (!result [el.event]) {
+        result[el.event] = {};
+        if (!result[el.event]) {
+          result[el.event] = 1;
+        }
+      } else {
+        if (!result[el.event]) {
+          result[el.event] = 1;
+        } else {
+          result[el.event] += 1;
+        }
+      }
+    });
 
     this.option = {
-      tooltip: {
-        show: true,
-      },
       xAxis: {
         type: "category",
-      },
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
       yAxis: {
-        type: "value",
+        type: "value"
       },
-      series: [{
-        data: charData.map(m => ({
-          name: m.event
-        })),
-        type: 'line'
-      }]
+      series: [
+        {
+          data: [12, 25, 15, 17, 85],
+          type: "bar",
+        }
+      ]
     }
   }
 }
+
+
+
+
+
+/*
+const sortData = Object.keys(result).reduce((acc, key) => {
+  acc[key] = Object.keys(result[key])
+      .map(el => new Date(el).getTime())
+      .sort((a, b) => a - b)
+      .map(date => {
+        return new Date(date).getFullYear() + '-' + ( new Date(date).getMonth() + 1 )
+            + '-' + ( new Date(date).getDate() < 10 ? '0' + new Date(date).getDate() : new Date(date).getDate() );
+      }).reduce((red, strDate) => {
+        red[strDate] = result[key][strDate];
+        return red;
+      }, {} );
+  return acc;
+}, {});*/
