@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
       number: 1,
       name: 'Home',
       icon: 'fa-solid fa-house',
-      routerLink: 'home'
+      routerLink: '/mainpage/home'
     },
     {
       number: 2,
@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
       number: 3,
       name: 'Logs',
       icon: 'fa-solid fa-chart-simple',
-      routerLink: 'logs',
+      routerLink: '/mainpage/logs',
     },
     {
       number: 4,

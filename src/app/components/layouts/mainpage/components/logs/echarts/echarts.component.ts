@@ -12,73 +12,71 @@ import {Subscription} from "rxjs";
 export class EchartsComponent implements OnInit {
   sideNavStatus: boolean = false;
   subscription!: Subscription;
-
-
-  myChart = echarts.init(document.getElementById('main')!);
   option!: EChartsOption;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+  }
 
 
   ngOnInit(): void {
+    const chartDom: HTMLElement = document.getElementById('main') as HTMLElement;
+    const myChart = echarts.init(chartDom);
     this.subscription = this.dataService.getLogs().subscribe(data => {
-      this.initBasicEchart(data);
+      myChart.setOption(this.initBasicEchart(data))
     })
   }
 
   private initBasicEchart(data: Logs[]) {
 
-    this.myChart.setOption({
+    const result: any = {};
+
+    data.forEach(el => {
+      const date = el.date.toString().substring(0, 10);
+      if (!result[el.event]) {
+        result[el.event] = {};
+        if (!result[el.event][date]) {
+          result[el.event][date] = 1;
+        }
+      } else {
+        if (!result[el.event][date]) {
+          result[el.event][date] = 1;
+        } else {
+          result[el.event][date] += 1;
+        }
+      }
+    });
+
+    const login = {
+      x: Object.keys(result.Login),
+      y: Object.values(result.Login)};
+
+    const reg = {
+      c: Object.keys(result.Registration),
+      z: Object.values(result.Registration)};
+
+    return {
       title: {
-        text: 'ECharts Getting Started Example'
+        text: 'Graphic login and registration.'
       },
       tooltip: {},
       xAxis: {
-        data: ['shirt', 'cardigan', 'chiffon', 'pants', 'heels', 'socks']
+        type: 'category',
+        data: (reg.c, login.x)
       },
-      yAxis: {},
+      yAxis: {
+      },
       series: [
         {
-          name: 'sales',
+          name: 'Login',
           type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
+          data: login.y,
+        },
+        {
+          name: 'Registration',
+          type: 'bar',
+          data: reg.z,
         }
       ]
-    });
+    };
   }
 }
-
-
-
-/*    const result: any = {};
-
-    data.forEach(el => {
-      //const date = el.date.toDateString().substring(0, 10);
-      if (!result [el.event]) {
-        result[el.event] = {};
-        if (!result[el.event]) {
-          result[el.event] = 1;
-        }
-      } else {
-        if (!result[el.event]) {
-          result[el.event] = 1;
-        } else {
-          result[el.event] += 1;
-        }
-      }
-    });*/
-
-/*
-const sortData = Object.keys(result).reduce((acc, key) => {
-  acc[key] = Object.keys(result[key])
-      .map(el => new Date(el).getTime())
-      .sort((a, b) => a - b)
-      .map(date => {
-        return new Date(date).getFullYear() + '-' + ( new Date(date).getMonth() + 1 )
-            + '-' + ( new Date(date).getDate() < 10 ? '0' + new Date(date).getDate() : new Date(date).getDate() );
-      }).reduce((red, strDate) => {
-        red[strDate] = result[key][strDate];
-        return red;
-      }, {} );
-  return acc;
-}, {});*/

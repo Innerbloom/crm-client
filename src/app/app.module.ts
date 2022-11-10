@@ -14,13 +14,13 @@ import {MainpageModule} from "./components/layouts/mainpage/mainpage.module";
 import {AgGridModule} from "ag-grid-angular";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    NotFoundComponent,
-    RegComponent,
-    LogsComponent,
-  ],
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        NotFoundComponent,
+        RegComponent,
+        LogsComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -30,7 +30,10 @@ import {AgGridModule} from "ag-grid-angular";
         MainpageModule,
         AgGridModule
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    exports: [
+        LogsComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

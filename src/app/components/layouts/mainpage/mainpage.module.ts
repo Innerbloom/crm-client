@@ -9,6 +9,8 @@ import { MainpageDashboardComponent } from './components/mainpage.dashboard/main
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EchartsComponent } from './components/logs/echarts/echarts.component';
 import {NgxEchartsModule} from "ngx-echarts";
+import {AgGridModule} from "ag-grid-angular";
+import { AggreedComponent } from './components/logs/aggreed/aggreed.component';
 
 
 @NgModule({
@@ -18,18 +20,21 @@ import {NgxEchartsModule} from "ngx-echarts";
         HomeComponent,
         MainpageDashboardComponent,
         SidebarComponent,
-        EchartsComponent
+        EchartsComponent,
+        AggreedComponent
     ],
     exports: [
         HeaderComponent,
         SidebarComponent,
         FooterComponent,
-        EchartsComponent
+        EchartsComponent,
+        AggreedComponent
     ],
     imports: [
         CommonModule,
         MainpageRoutingModule,
-        NgxEchartsModule
+        NgxEchartsModule,
+        AgGridModule,
     ]
 })
 export class MainpageModule { }

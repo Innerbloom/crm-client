@@ -4,22 +4,13 @@ import {MainpageDashboardComponent} from "./components/mainpage.dashboard/mainpa
 import {HomeComponent} from "./components/home/home.component";
 import {AuthGuard} from "../../../guards/auth.guard";
 import {LogsComponent} from "./components/logs/logs.component";
-import {EchartsComponent} from "./components/logs/echarts/echarts.component";
 
 
 
 const routes: Routes = [
-  {path: '', component: MainpageDashboardComponent, canActivate: [AuthGuard],
-    children: [
-      {path : 'home', component: HomeComponent, canActivate: [AuthGuard]},
-      {path : '', redirectTo: 'home', pathMatch: 'full'}
-    ]
-  },
-  {path: 'logs', component: LogsComponent, canActivate: [AuthGuard],
-  children: [
-    {path: 'echarts', component: EchartsComponent, canActivate: [AuthGuard]},
-  ]
-  }
+  {path: '', component: MainpageDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'logs', component: LogsComponent, canActivate: [AuthGuard]},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

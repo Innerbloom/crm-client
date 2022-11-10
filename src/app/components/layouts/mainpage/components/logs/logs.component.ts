@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {DataService} from "../../../../../services/data.service";
 import {Logs} from "../../../../../services/interfaces";
 
@@ -10,16 +10,9 @@ import {Logs} from "../../../../../services/interfaces";
 export class LogsComponent implements OnInit {
   sideNavStatus: boolean = false;
 
-  constructor(private dataService: DataService) {}
-
   logs!: Logs[];
 
-  columnDefs = [
-    { headerName: 'Username', field: 'username' },
-    { headerName: 'Event', field: 'event' },
-    { headerName: 'Date', field: 'date' }
-  ];
-
+  constructor(private dataService: DataService) {}
 
 
   ngOnInit() {
@@ -27,3 +20,4 @@ export class LogsComponent implements OnInit {
   }
 
 }
+
