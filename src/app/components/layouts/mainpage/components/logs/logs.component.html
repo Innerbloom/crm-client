@@ -11,13 +11,16 @@
 
             <app-aggreed
                     *ngIf="logs"
-                    [logs]='logs'
+                    [logs]="logs"
+                    [columnDefs]="columnDefs"
             ></app-aggreed>
 
         </div>
     </main>
 </div>
 
-<app-echarts></app-echarts>
+<app-echarts
+        [initBasicEcharts]="initBasicEcharts"
+></app-echarts>
 
 <app-footer></app-footer>

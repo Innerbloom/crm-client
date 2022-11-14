@@ -21,14 +21,14 @@ import { AggreedComponent } from './components/logs/aggreed/aggreed.component';
         MainpageDashboardComponent,
         SidebarComponent,
         EchartsComponent,
-        AggreedComponent
+        AggreedComponent,
     ],
     exports: [
         HeaderComponent,
         SidebarComponent,
         FooterComponent,
         EchartsComponent,
-        AggreedComponent
+        AggreedComponent,
     ],
     imports: [
         CommonModule,
