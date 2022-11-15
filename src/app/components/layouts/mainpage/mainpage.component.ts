@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mainpage.dashboard',
-  templateUrl: './mainpage.dashboard.component.html',
-  styleUrls: ['./mainpage.dashboard.component.scss']
+  templateUrl: './mainpage.component.html',
+  styleUrls: ['./mainpage.component.scss']
 })
-export class MainpageDashboardComponent implements OnInit {
+export class MainpageComponent implements OnInit {
 
   sideNavStatus: boolean = false;
 

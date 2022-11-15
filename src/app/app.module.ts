@@ -22,12 +22,12 @@ import {AgGridModule} from "ag-grid-angular";
         LogsComponent,
     ],
     imports: [
+        MainpageModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         NgbModule,
         ReactiveFormsModule,
-        MainpageModule,
         AgGridModule
     ],
     providers: [],

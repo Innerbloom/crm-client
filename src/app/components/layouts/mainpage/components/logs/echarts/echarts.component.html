@@ -1,20 +1,7 @@
-<div class="container-fluid g-0">
-    <app-header (sideNavToggled)="sideNavStatus = $event;"></app-header>
+<div
+        id="e-chart"
+        style="width: auto;
+        height: 300px;"
+>
+</div >
 
-    <main>
-        <app-sidebar [sideNavStatus]="sideNavStatus"
-                     [ngClass]="{'app-side-nav-open': sideNavStatus}"></app-sidebar>
-
-        <div class="display-area p-3" [ngClass]="{'display-area-shrink': sideNavStatus}">
-
-            <div
-
-                    id="main"
-                    style="width: auto; height: 300px; flex: auto"
-            >
-            </div >
-        </div>
-    </main>
-</div>
-
-<app-footer></app-footer>

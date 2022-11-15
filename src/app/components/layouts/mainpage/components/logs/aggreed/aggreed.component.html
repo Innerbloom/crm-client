@@ -1,0 +1,17 @@
+<div style="margin: 10px 0">
+    <button (click)="onBtnExportDataAsCsv()">
+        Download CSV export file
+    </button>
+
+<ag-grid-angular
+        style="width: 100%; height: 500px"
+        class="ag-theme-alpine"
+        [rowData]="logs"
+        [headerHeight]="40"
+        [columnDefs]="columnDefs"
+        [suppressExcelExport]="true"
+        [animateRows]="true"
+        rowSelection='single'
+        (gridReady)="BindData($event)">
+</ag-grid-angular>
+    </div>
