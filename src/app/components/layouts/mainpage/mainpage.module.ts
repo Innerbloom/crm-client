@@ -23,11 +23,11 @@ import {MainpageComponent} from "./mainpage.component";
         AggreedComponent,
     ],
     exports: [
-        HeaderComponent,
         SidebarComponent,
         FooterComponent,
         EchartsComponent,
         AggreedComponent,
+        HeaderComponent,
     ],
     imports: [
         CommonModule,
