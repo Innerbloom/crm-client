@@ -11,7 +11,6 @@ import {Subscription} from "rxjs";
 })
 export class LogsComponent implements OnInit {
 
-  sideNavStatus: boolean = false;
 
   subscription: Subscription = new Subscription();
 
