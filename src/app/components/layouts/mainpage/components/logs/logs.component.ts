@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../../../../services/data.service";
-import {Logs} from "../../../../../services/interfaces";
-import * as echarts from "echarts";
+import {Chart, Charts, Logs} from "../../../../../services/interfaces";
 import {Subscription} from "rxjs";
-
 
 
 @Component({
@@ -14,10 +12,15 @@ import {Subscription} from "rxjs";
 export class LogsComponent implements OnInit {
 
   sideNavStatus: boolean = false;
-  subscription!: Subscription
-  public logs!: Logs[];
+
+  subscription: Subscription = new Subscription();
+
+  public logs: Logs[] = [];
+  public charts: Charts[] = [];
+  public chart: Chart | undefined;
 
   constructor(private dataService: DataService) {
+
   }
 
   columnDefs = [
@@ -28,28 +31,12 @@ export class LogsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.LoadLogs()
-    this.LoadEcharts()
-  }
-
-  LoadLogs() {
-    this.dataService.getLogs().subscribe(logs => this.logs = logs);
-  }
-
-  LoadEcharts(): void {
-    const chartDom: HTMLElement = document.getElementById('e-chart') as HTMLElement;
-    const myChart = echarts.init(chartDom);
-
-    this.subscription = this.dataService.getLogs().subscribe(data => {
-      myChart.setOption(this.initBasicEcharts(data))
-    })
-  }
-
-  initBasicEcharts(data: Logs[]) {
+    const subscribe = this.dataService.getLogs().subscribe(logs => {
+      this.logs = logs
 
     const result: any = {};
 
-    data.forEach(el => {
+    logs.forEach(el => {
       const date = el.date.toString().substring(0, 10);
       if (!result[el.event]) {
         result[el.event] = {};
@@ -65,29 +52,18 @@ export class LogsComponent implements OnInit {
       }
     });
 
-  const login = {
-    x: Object.keys(result.Login),
-    y: Object.values(result.Login)};
+    this.charts = Object.keys(result).reduce((acc: Charts[], event: string) => {
+      const chart: Chart = {
+        x: Object.keys(result[event]),
+        y: Object.values(result[event]),
+        title: event,
+        };
+      acc.push(chart);
+      return acc;
+    }, [] as Charts[]);
+    });
 
-
-    return {
-      title: {
-        text: 'Graphic login.'
-      },
-      tooltip: {},
-      xAxis: [{
-        type: 'category',
-        data: login.x
-      }],
-      yAxis: {
-      },
-      series: [
-        {
-          name: 'Login',
-          type: 'bar',
-          data: login.y
-        }
-      ]
-    };
+    this.subscription.add(subscribe)
   }
 }
+

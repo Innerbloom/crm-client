@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {List} from "../../../../../services/interfaces";
 
 @Component({
   selector: 'app-sidebar',
@@ -41,11 +42,4 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
-
-export interface List {
-  number: number;
-  name: string;
-  icon: string;
-  routerLink?: string
 }

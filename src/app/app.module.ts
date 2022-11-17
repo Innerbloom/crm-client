@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -9,9 +8,11 @@ import { NotFoundComponent } from './components/layouts/not-found/not-found.comp
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { RegComponent } from './components/layouts/reg/reg.component';
-import { LogsComponent } from './components/layouts/mainpage/components/logs/logs.component';
 import {MainpageModule} from "./components/layouts/mainpage/mainpage.module";
 import {AgGridModule} from "ag-grid-angular";
+import {FooterComponent} from "./components/layouts/mainpage/components/footer/footer.component";
+import {HeaderComponent} from "./components/layouts/mainpage/components/header/header.component";
+import {LogsComponent} from "./components/layouts/mainpage/components/logs/logs.component";
 
 @NgModule({
     declarations: [

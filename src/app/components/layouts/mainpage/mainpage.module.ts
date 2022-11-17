@@ -34,6 +34,6 @@ import {MainpageComponent} from "./mainpage.component";
         MainpageRoutingModule,
         NgxEchartsModule,
         AgGridModule,
-    ]
+    ],
 })
 export class MainpageModule { }

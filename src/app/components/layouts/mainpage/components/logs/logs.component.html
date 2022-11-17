@@ -1,9 +1,5 @@
 <div class="container-fluid g-0">
-    <app-header (sideNavToggled)="sideNavStatus = $event;"></app-header>
-        <app-sidebar
-                [sideNavStatus]="sideNavStatus"
-                [ngClass]="{'app-side-nav-open': sideNavStatus}">
-        </app-sidebar>
+
             <div class="display-area p-3" [ngClass]="{'display-area-shrink': sideNavStatus}">
             <p class="fs-1 fw-bold fst-italic text-center">Login and registration statistics.</p>
 
@@ -13,10 +9,13 @@
                     [columnDefs]="columnDefs"
             ></app-aggreed>
 
-            <app-echarts>
-            </app-echarts>
+                <div>
+                    <app-echarts
+                            *ngFor="let chart of charts"
+                            [chart]="chart">
+                    </app-echarts>
+                </div>
         </div>
-    <app-footer></app-footer>
 </div>
 
 
