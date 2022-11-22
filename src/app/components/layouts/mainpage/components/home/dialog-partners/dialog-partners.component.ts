@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-dialog-partners',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogPartnersComponent implements OnInit {
 
-  constructor() { }
+  partnersForm!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.partnersForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      status: ['', Validators.required],
+      email: ['', Validators.required]
+    })
+  }
+
+  addPartner() {
+    console.log(this.partnersForm.value)
   }
 
 }

@@ -19,23 +19,16 @@ export class HomeComponent implements OnInit {
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '30%';
-
-    dialogConfig.data = {
-      id: 1,
-      title: "Hello"
-    }
-
-      this.dialog.open(DialogPartnersComponent, dialogConfig)
+    dialogConfig.width = '60%';
+    this.dialog.open(DialogPartnersComponent, dialogConfig)
   }
 
   columnDef = [
     { headerName: 'Partner Name', field: 'username', flex: 1 },
     { headerName: 'Date', field: 'date', flex: 1 },
-    { headerName: 'Event', field: 'partnersEvent', flex: 1 },
+    { headerName: 'Status', field: 'partnersEvent', flex: 1 },
     { headerName: 'Email', field: 'email', flex: 1 }
   ];
 
