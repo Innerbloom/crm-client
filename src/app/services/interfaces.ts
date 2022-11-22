@@ -16,6 +16,13 @@ export interface Logs {
     date: Date;
 }
 
+export interface Partners {
+    username: string;
+    date: Date;
+    partnersEvent: string;
+    email: string;
+}
+
 
 export interface Charts {
     x: any;
@@ -28,4 +35,3 @@ export interface Chart {
     y: any;
     title: any;
 }
-

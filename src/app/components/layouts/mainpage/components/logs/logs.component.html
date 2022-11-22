@@ -1,5 +1,6 @@
-<div class="container-fluid g-0">
-            <p class="fs-1 fw-bold fst-italic text-center">Login and registration statistics.</p>
+<div class="container-fluid g-0" [ngClass]="{'app-side-nav-open': sideNavStatus}">
+
+    <p class="fs-1 fw-bold fst-italic text-center">Login and registration statistics.</p>
 
             <app-aggreed
                     *ngIf="logs"
@@ -7,13 +8,13 @@
                     [columnDefs]="columnDefs"
             ></app-aggreed>
 
+
                 <div>
                     <app-echarts
                             *ngFor="let chart of charts"
                             [chart]="chart">
                     </app-echarts>
                 </div>
-
 </div>
 
 

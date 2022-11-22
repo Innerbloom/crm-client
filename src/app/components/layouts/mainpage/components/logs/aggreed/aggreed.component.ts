@@ -10,7 +10,7 @@ export class AggreedComponent implements OnInit {
 
   constructor() { }
 
-  @Input() logs!: Logs[];
+  @Input() logs: Logs[] = [];
   @Input() columnDefs: any[] = [];
 
 

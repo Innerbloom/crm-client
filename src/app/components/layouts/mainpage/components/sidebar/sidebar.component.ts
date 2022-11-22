@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import {List} from "../../../../../services/interfaces";
 
 @Component({
@@ -37,7 +37,20 @@ export class SidebarComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private elementRef: ElementRef) { }
+
+  @Output() clickSidebar = new EventEmitter<MouseEvent>();
+
+     @HostListener('document:click', ['$event', '$event.target'])
+     public onClick(event: MouseEvent, targetElement: HTMLElement) : void {
+       if(!targetElement) {
+         return;
+       }
+       const clickedInside = this.elementRef.nativeElement.contains(targetElement);
+       if(!clickedInside) {
+         this.clickSidebar.emit(event);
+       }
+     }
 
   ngOnInit(): void {
   }

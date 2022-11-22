@@ -1,4 +1,17 @@
 <div class="content">
             <p class="fs-1 fw-bold fst-italic text-center">Home Component.</p>
+    <button
+            (click)="openDialog()"
+            class="btn btn-secondary">
+        <i class="fa fa-user"></i>
+        New Partner
+    </button>
+    <hr>
+    <app-ag-greed-partners
+    *ngIf="partners"
+    [partners]="partners"
+    [columnDef]="columnDef"
+    >
+    </app-ag-greed-partners>
 </div>
 

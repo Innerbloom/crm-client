@@ -13,6 +13,10 @@ import {AgGridModule} from "ag-grid-angular";
 import {FooterComponent} from "./components/layouts/mainpage/components/footer/footer.component";
 import {HeaderComponent} from "./components/layouts/mainpage/components/header/header.component";
 import {LogsComponent} from "./components/layouts/mainpage/components/logs/logs.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {
+    DialogPartnersComponent
+} from "./components/layouts/mainpage/components/home/dialog-partners/dialog-partners.component";
 
 @NgModule({
     declarations: [
@@ -29,7 +33,8 @@ import {LogsComponent} from "./components/layouts/mainpage/components/logs/logs.
         HttpClientModule,
         NgbModule,
         ReactiveFormsModule,
-        AgGridModule
+        AgGridModule,
+        BrowserAnimationsModule
     ],
     providers: [],
     exports: [

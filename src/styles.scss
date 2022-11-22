@@ -27,7 +27,7 @@ app-sidebar {
   left: 0rem;
   top: 78px;
   width: 60px;
-  height: calc(120vh - 3rem);
+  height: calc(120vh - 4rem);
   box-shadow: 0px 0px 10px rgba(255, 0, 0, 0);
   background-color: rgb(27, 30, 33);
   overflow-x: hidden;
@@ -38,6 +38,13 @@ app-sidebar {
 .app-side-nav-open {
   width: 250px;
 }
+
+/*main {
+  position: sticky;
+  width: 100%;
+  top: 4rem;
+  z-index: 1;
+}*/
 
 .display-area {
   position: absolute;

@@ -10,22 +10,22 @@ import {Subscription} from "rxjs";
   styleUrls: ['./logs.component.scss']
 })
 export class LogsComponent implements OnInit {
+  sideNavStatus: boolean = false;
 
-
-  subscription: Subscription = new Subscription();
-
+  public subscription: Subscription = new Subscription();
   public logs: Logs[] = [];
   public charts: Charts[] = [];
   public chart: Chart | undefined;
+
 
   constructor(private dataService: DataService) {
 
   }
 
   columnDefs = [
-    { headerName: 'USER NAME', field: 'username', flex: 1},
-    { headerName: 'EVENT', field: 'event', flex: 1},
-    { headerName: 'DATE', field: 'date', flex: 1}
+    { headerName: 'USER NAME', field: 'username', flex: 1 },
+    { headerName: 'EVENT', field: 'event', flex: 1 },
+    { headerName: 'DATE', field: 'date', flex: 1 }
   ];
 
 
@@ -36,7 +36,7 @@ export class LogsComponent implements OnInit {
     const result: any = {};
 
     logs.forEach(el => {
-      const date = el.date.toString().substring(0, 10);
+       const date = el.date.toString().substring(0, 10);
       if (!result[el.event]) {
         result[el.event] = {};
         if (!result[el.event][date]) {
@@ -52,11 +52,13 @@ export class LogsComponent implements OnInit {
     });
 
     this.charts = Object.keys(result).reduce((acc: Charts[], event: string) => {
+
       const chart: Chart = {
         x: Object.keys(result[event]),
         y: Object.values(result[event]),
         title: event,
         };
+
       acc.push(chart);
       return acc;
     }, [] as Charts[]);

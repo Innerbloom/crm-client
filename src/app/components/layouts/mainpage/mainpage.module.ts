@@ -10,7 +10,9 @@ import {NgxEchartsModule} from "ngx-echarts";
 import {AgGridModule} from "ag-grid-angular";
 import {AggreedComponent} from './components/logs/aggreed/aggreed.component';
 import {MainpageComponent} from "./mainpage.component";
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { AgGreedPartnersComponent } from './components/home/ag-greed-partners/ag-greed-partners.component';
+import { DialogPartnersComponent } from './components/home/dialog-partners/dialog-partners.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +23,8 @@ import {MainpageComponent} from "./mainpage.component";
         SidebarComponent,
         EchartsComponent,
         AggreedComponent,
+        AgGreedPartnersComponent,
+        DialogPartnersComponent,
     ],
     exports: [
         SidebarComponent,
@@ -34,6 +38,8 @@ import {MainpageComponent} from "./mainpage.component";
         MainpageRoutingModule,
         NgxEchartsModule,
         AgGridModule,
+        MatDialogModule,
     ],
+    entryComponents: [DialogPartnersComponent]
 })
 export class MainpageModule { }
