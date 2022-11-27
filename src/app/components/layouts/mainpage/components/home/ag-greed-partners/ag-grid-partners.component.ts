@@ -3,10 +3,10 @@ import {Partners} from "../../../../../../services/interfaces";
 
 @Component({
   selector: 'app-ag-greed-partners',
-  templateUrl: './ag-greed-partners.component.html',
-  styleUrls: ['./ag-greed-partners.component.scss']
+  templateUrl: './ag-grid-partners.component.html',
+  styleUrls: ['./ag-grid-partners.component.scss']
 })
-export class AgGreedPartnersComponent implements OnInit {
+export class AgGridPartnersComponent implements OnInit {
 
   @Input() partners: Partners[] = [];
   @Input() columnDef: any[] = [];
@@ -15,5 +15,4 @@ export class AgGreedPartnersComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -28,7 +28,6 @@ export class LogsComponent implements OnInit {
     { headerName: 'DATE', field: 'date', flex: 1 }
   ];
 
-
   ngOnInit() {
     const subscribe = this.dataService.getLogs().subscribe(logs => {
       this.logs = logs

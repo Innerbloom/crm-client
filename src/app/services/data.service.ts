@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Logs, Partners} from "./interfaces";
+import {Logs, Partners, Users} from "./interfaces";
 import {environment} from "../../environments/environment";
 
 
@@ -20,6 +20,13 @@ export class DataService {
         return this.http.get<Partners[]>(environment.apiURL + '/partners')
     }
 
+    public postPartners(regPartners: Partners) {
+        return this.http.post(environment.apiURL + '/partners', regPartners)
+    }
+
+    public putPartners (regPartners: Partners, id: number) {
+        return this.http.put(environment.apiURL + '/partners'+id, regPartners)
+    }
 }
 
 

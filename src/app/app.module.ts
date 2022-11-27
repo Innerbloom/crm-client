@@ -10,13 +10,9 @@ import {HttpClientModule} from "@angular/common/http";
 import { RegComponent } from './components/layouts/reg/reg.component';
 import {MainpageModule} from "./components/layouts/mainpage/mainpage.module";
 import {AgGridModule} from "ag-grid-angular";
-import {FooterComponent} from "./components/layouts/mainpage/components/footer/footer.component";
-import {HeaderComponent} from "./components/layouts/mainpage/components/header/header.component";
 import {LogsComponent} from "./components/layouts/mainpage/components/logs/logs.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {
-    DialogPartnersComponent
-} from "./components/layouts/mainpage/components/home/dialog-partners/dialog-partners.component";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
     declarations: [
@@ -34,7 +30,8 @@ import {
         NgbModule,
         ReactiveFormsModule,
         AgGridModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatButtonModule
     ],
     providers: [],
     exports: [

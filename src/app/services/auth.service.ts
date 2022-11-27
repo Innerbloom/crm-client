@@ -30,7 +30,7 @@ export class AuthService {
     return this.router.navigate(['login']);
   }
 
-  loginUser(users: Users): Observable <any> {
+  loginUser(users: Users): Observable<any> {
     return this.http.post(environment.apiURL + '/login', users);
   }
 
