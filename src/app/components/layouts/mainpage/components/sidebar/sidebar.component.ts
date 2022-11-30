@@ -9,15 +9,15 @@ import {List} from "../../../../../services/interfaces";
 
 export class SidebarComponent implements OnInit {
 
-  @Input()
-  sideNavStatus: boolean = false;
+  @Input() sideNavStatus: boolean = false;
+  @Output() clickSidebar = new EventEmitter<MouseEvent>();
 
      public list: List[] = [
     {
       number: 1,
       name: 'Home',
       icon: 'fa-solid fa-house',
-      routerLink: '/mainpage/home'
+      routerLink: '/mainpage/home',
     },
     {
       number: 2,
@@ -39,9 +39,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(private elementRef: ElementRef) { }
 
-  @Output() clickSidebar = new EventEmitter<MouseEvent>();
-
-     @HostListener('document:click', ['$event', '$event.target'])
+     @HostListener('document: click', ['$event', '$event.target'])
      public onClick(event: MouseEvent, targetElement: HTMLElement) : void {
        if(!targetElement) {
          return;

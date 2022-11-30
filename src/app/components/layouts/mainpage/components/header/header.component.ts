@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../../../../services/auth.service";
 
 @Component({
@@ -9,11 +9,7 @@ import {AuthService} from "../../../../../services/auth.service";
 export class HeaderComponent implements OnInit {
 
   @Output() sideNavToggled = new EventEmitter<boolean>();
-
-
   menuStatus: boolean = false;
-
-
 
   constructor(private authService: AuthService) {
   }

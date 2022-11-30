@@ -1,3 +1,4 @@
+import * as events from "events";
 
 
 export interface List {
@@ -19,9 +20,10 @@ export interface Logs {
 }
 
 export interface Partners {
+    id: number;
     username: string;
     date: Date;
-    partnersEvent: string;
+    partnersEvent: events;
     email: string;
 }
 

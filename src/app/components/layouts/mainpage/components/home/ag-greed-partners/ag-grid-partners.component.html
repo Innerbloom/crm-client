@@ -5,6 +5,7 @@
         [headerHeight]="40"
         [columnDefs]="columnDef"
         [animateRows]="true"
+        (gridReady)="OnGridReady($event)"
         rowSelection='single'>
 </ag-grid-angular>
 

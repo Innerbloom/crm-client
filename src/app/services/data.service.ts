@@ -24,8 +24,8 @@ export class DataService {
         return this.http.post(environment.apiURL + '/partners', regPartners)
     }
 
-    public putPartners (regPartners: Partners, id: number) {
-        return this.http.put(environment.apiURL + '/partners'+id, regPartners)
+    public putPartners(regPartners: Partners, id: number) {
+        return this.http.put(environment.apiURL + '/partners/'+id, regPartners)
     }
 }
 

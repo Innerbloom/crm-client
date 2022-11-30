@@ -18,14 +18,12 @@ export class LogsComponent implements OnInit {
   public chart: Chart | undefined;
 
 
-  constructor(private dataService: DataService) {
-
-  }
+  constructor(private dataService: DataService) { }
 
   columnDefs = [
-    { headerName: 'USER NAME', field: 'username', flex: 1 },
-    { headerName: 'EVENT', field: 'event', flex: 1 },
-    { headerName: 'DATE', field: 'date', flex: 1 }
+    { headerName: 'User name', field: 'username', flex: 1 },
+    { headerName: 'Event', field: 'event', flex: 1 },
+    { headerName: 'Date', field: 'date', flex: 1 }
   ];
 
   ngOnInit() {

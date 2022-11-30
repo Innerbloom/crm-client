@@ -13,7 +13,6 @@ export class AggreedComponent implements OnInit {
   @Input() logs: Logs[] = [];
   @Input() columnDefs: any[] = [];
 
-
   gridApi: any;
   gridColumnApi: any;
 

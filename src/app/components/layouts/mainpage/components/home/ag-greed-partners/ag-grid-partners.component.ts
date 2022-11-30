@@ -9,9 +9,17 @@ import {Partners} from "../../../../../../services/interfaces";
 export class AgGridPartnersComponent implements OnInit {
 
   @Input() partners: Partners[] = [];
-  @Input() columnDef: any[] = [];
+  @Input() columnDef: any[] = []
+
+  gridApi: any;
+  gridColumnApi: any;
 
   constructor() { }
+
+  OnGridReady(params: any) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+  }
 
   ngOnInit(): void {
   }

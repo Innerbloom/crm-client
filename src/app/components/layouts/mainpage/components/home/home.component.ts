@@ -13,9 +13,12 @@ import {BtnCellRendererComponent} from "./ag-greed-partners/btn-cell-renderer/bt
 })
 export class HomeComponent implements OnInit {
 
+  sideNavStatus: boolean = false;
+
   public subscription: Subscription = new Subscription();
   public partners: Partners[] = [];
   public row: any;
+  public id: any;
 
 
   constructor(private dataService: DataService, private dialog: MatDialog,) { }
@@ -25,7 +28,11 @@ export class HomeComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '60%';
-    this.dialog.open(DialogPartnersComponent, dialogConfig)
+    this.dialog.open(DialogPartnersComponent, dialogConfig).afterClosed().subscribe(val => {
+      if(val === 'save') {
+        this.ngOnInit()
+      }
+    })
   }
 
   columnDef = [
@@ -33,17 +40,22 @@ export class HomeComponent implements OnInit {
     { headerName: 'Date', field: 'date', flex: 1 },
     { headerName: 'Status', field: 'partnersEvent', flex: 0 },
     { headerName: 'Email', field: 'email', flex: 1 },
-    { headerName: 'Action', field: 'action', flex: 0.3,
+    { headerName: 'Edit', field: 'action', flex: 0.3,
       cellRenderer: BtnCellRendererComponent,
       cellRendererParams: {
       edit: (row: any) => {
         this.dialog.open(DialogPartnersComponent, {
           width: '30%',
+          disableClose: true,
           data: row
+        }).afterClosed().subscribe(val =>  {
+          if(val === 'update') {
+            this.ngOnInit()
+          }
         })
       }
-      }
-    }
+      },
+    },
   ];
 
   ngOnInit(): void {
@@ -53,5 +65,4 @@ export class HomeComponent implements OnInit {
 
     this.subscription.add(partner)
   }
-
 }

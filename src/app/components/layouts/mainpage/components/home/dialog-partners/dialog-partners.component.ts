@@ -13,6 +13,8 @@ export class DialogPartnersComponent implements OnInit {
 
     partnersForm!: FormGroup;
     actionBtn: string = "Save";
+    gridApi: any;
+    gridColumnApi: any;
 
     constructor(private formBuilder: FormBuilder,
                 private dataService: DataService,
@@ -23,15 +25,14 @@ export class DialogPartnersComponent implements OnInit {
   ngOnInit(): void {
     this.partnersForm = this.formBuilder.group({
       username: ['', Validators.required],
-      status: ['', Validators.required],
+      partnersEvent: ['', Validators.required],
       email: ['', Validators.required]
     })
 
       if(this.editData) {
-          console.log(this.editData)
           this.actionBtn = "Update"
           this.partnersForm.controls['username'].setValue(this.editData.username)
-          this.partnersForm.controls['status'].setValue(this.editData.status)
+          this.partnersForm.controls['partnersEvent'].setValue(this.editData.partnersEvent)
           this.partnersForm.controls['email'].setValue(this.editData.email)
       }
   }
@@ -43,7 +44,7 @@ export class DialogPartnersComponent implements OnInit {
                 .subscribe({
                     next:() => {
                         this.partnersForm.reset();
-                        this.dialogRef.close();
+                        this.dialogRef.close('save');
                     },
                     error:(err) => {
                         console.log(err)
@@ -54,12 +55,16 @@ export class DialogPartnersComponent implements OnInit {
         this.updatePartner()
     }
   }
+
   updatePartner () {
         this.dataService.putPartners(this.partnersForm.value, this.editData.id)
             .subscribe({
-                next: (res) => {
+                next: () => {
                     this.partnersForm.reset();
-                        this.dialogRef.close('update');
+                    this.dialogRef.close('update');
+                },
+                error:(err) => {
+                    console.log(err)
                 }
             })
   }
