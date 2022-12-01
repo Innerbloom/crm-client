@@ -22,7 +22,7 @@ export class LogsComponent implements OnInit {
 
   columnDefs = [
     { headerName: 'User name', field: 'username', flex: 1 },
-    { headerName: 'Event', field: 'event', flex: 1 },
+    { headerName: 'Event', field: 'event', flex: 1, },
     { headerName: 'Date', field: 'date', flex: 1 }
   ];
 

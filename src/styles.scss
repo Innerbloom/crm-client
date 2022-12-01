@@ -3,6 +3,7 @@
 /* Importing Bootstrap SCSS file. */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import "ag-grid-community/styles/ag-grid.css";
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
 
 
 .gradient-custom {
@@ -49,7 +50,6 @@ app-sidebar {
   left: 250px;
   width: calc(100% - 250px);
 }
-
 
 
 

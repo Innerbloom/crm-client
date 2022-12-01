@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     { headerName: 'Date', field: 'date', flex: 1 },
     { headerName: 'Status', field: 'partnersEvent', flex: 0 },
     { headerName: 'Email', field: 'email', flex: 1 },
-    { headerName: 'Edit', field: 'action', flex: 0.3,
+    { headerName: 'Edit', field: 'action', flex: 0.28,
       cellRenderer: BtnCellRendererComponent,
       cellRendererParams: {
       edit: (row: any) => {

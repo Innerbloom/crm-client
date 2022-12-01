@@ -1,13 +1,12 @@
 <div class="content">
-            <p class="fs-1 fw-bold fst-italic text-center">Partners</p>
+            <p class="fs-3 text-center">Partners</p>
     <button
             (click)="openDialog()"
-            class="btn btn-secondary">
+            class="btn btn-outline-dark">
         <i class="fa fa-user"></i>
         New Partner
     </button>
 
-    <hr>
         <app-ag-greed-partners
                 *ngIf="partners"
                 [partners]="partners"
