@@ -35,12 +35,14 @@ export class HomeComponent implements OnInit {
     })
   }
 
+
+
   columnDef = [
-    { headerName: 'Partner Name', field: 'username', flex: 0 },
-    { headerName: 'Date', field: 'date', flex: 1 },
-    { headerName: 'Status', field: 'partnersEvent', flex: 0 },
-    { headerName: 'Email', field: 'email', flex: 1 },
-    { headerName: 'Edit', field: 'action', flex: 0.28,
+    { headerName: 'Partner Name', field: 'username', width: 250 },
+    { headerName: 'Date', field: 'date', width: 250 },
+    { headerName: 'Status', field: 'partnersEvent', width: 120},
+    { headerName: 'Email', field: 'email', width: 250 },
+    { headerName: 'Edit', field: 'action', width: 90,
       cellRenderer: BtnCellRendererComponent,
       cellRendererParams: {
       edit: (row: any) => {

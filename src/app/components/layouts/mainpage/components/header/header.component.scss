@@ -2,6 +2,14 @@ nav {
   height: 100%;
 }
 
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+
 .side-nav-button {
   display: flex;
   justify-content: center;

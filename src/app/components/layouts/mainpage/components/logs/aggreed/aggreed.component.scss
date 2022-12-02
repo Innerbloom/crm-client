@@ -1,18 +1,20 @@
-#left {
+#download {
   margin-bottom: 10px;
 }
 
-
 .ag-theme-alpine {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   --ag-font-size: 13px;
-  --ag-font-family: "Roboto,sans-serif";
-}
-.ag-header {
+  --ag-font-family: Roboto,sans-serif;
   display: flex;
+  overflow: hidden;
+}
+
+.ag-header {
   font-size: 14px;
 }
 
 .ag-root-wrapper  {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 

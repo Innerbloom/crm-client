@@ -25,11 +25,13 @@ export class EchartsComponent implements AfterViewInit {
     const option: EChartsOption = {
       title: {
         text: this.chart ? this.chart.title: '',
+        left: 90
       },
       tooltip: {},
       xAxis: {
         type: 'category',
         data: this.chart ? this.chart.x: [],
+
       },
       yAxis: {
       },
@@ -37,6 +39,12 @@ export class EchartsComponent implements AfterViewInit {
           name: this.chart ? this.chart.title: '',
           type: 'bar',
           data: this.chart ? this.chart.y: [],
+        itemStyle: {
+          borderWidth: 1,
+          color: '#5fb993',
+          borderType: 'solid',
+          shadowBlur: 3
+        }
         }
       }
       const myChart = echarts.init(chartDom);

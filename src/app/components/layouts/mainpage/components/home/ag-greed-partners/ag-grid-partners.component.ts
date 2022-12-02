@@ -10,7 +10,6 @@ export class AgGridPartnersComponent implements OnInit {
 
   @Input() partners: Partners[] = [];
   @Input() columnDef: any[] = []
-
   gridApi: any;
   gridColumnApi: any;
 
@@ -19,8 +18,13 @@ export class AgGridPartnersComponent implements OnInit {
   OnGridReady(params: any) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    this.gridApi.sizeColumnsToFit();
+    window.onresize = () => {
+      this.gridApi.sizeColumnsToFit();
+    }
   }
 
   ngOnInit(): void {
   }
+
 }

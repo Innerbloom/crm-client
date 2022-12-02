@@ -21,6 +21,10 @@ export class AggreedComponent implements OnInit {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     params.api.setRowData(this.logs);
+    this.gridApi.sizeColumnsToFit();
+    window.onresize = () => {
+      this.gridApi.sizeColumnsToFit();
+    }
   }
   onBtnExportDataAsCsv() {
     let params = this.logs;
