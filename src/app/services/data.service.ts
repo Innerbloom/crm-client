@@ -27,6 +27,10 @@ export class DataService {
     public putPartners(regPartners: Partners, id: number) {
         return this.http.put(environment.apiURL + '/partners/'+id, regPartners)
     }
+
+    public deletePartners(id: number) {
+        return this.http.delete<any>(environment.apiURL + '/partners/'+id);
+    }
 }
 
 

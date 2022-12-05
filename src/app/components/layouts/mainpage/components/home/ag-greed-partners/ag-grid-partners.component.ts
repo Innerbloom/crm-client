@@ -10,6 +10,7 @@ export class AgGridPartnersComponent implements OnInit {
 
   @Input() partners: Partners[] = [];
   @Input() columnDef: any[] = []
+
   gridApi: any;
   gridColumnApi: any;
 

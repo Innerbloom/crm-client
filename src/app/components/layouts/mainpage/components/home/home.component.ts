@@ -6,6 +6,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogPartnersComponent} from "./dialog-partners/dialog-partners.component";
 import {BtnCellRendererComponent} from "./ag-greed-partners/btn-cell-renderer/btn-cell-renderer.component";
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   public subscription: Subscription = new Subscription();
   public partners: Partners[] = [];
   public row: any;
-  public id: any;
+  public id: number | undefined
 
 
   constructor(private dataService: DataService, private dialog: MatDialog,) { }
@@ -35,14 +36,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
-
-
   columnDef = [
     { headerName: 'Partner Name', field: 'username', width: 250 },
-    { headerName: 'Date', field: 'date', width: 250 },
-    { headerName: 'Status', field: 'partnersEvent', width: 120},
-    { headerName: 'Email', field: 'email', width: 250 },
-    { headerName: 'Edit', field: 'action', width: 90,
+    { headerName: 'Date', field: 'date', width: 250, cellRenderer: (data: any) => {
+      return data.value ? (new Date(data.value)).toLocaleDateString('eu-UA',
+          { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'}) : '';
+      } },
+    { headerName: 'Status', field: 'partnersEvent', width: 120 },
+    { headerName: 'Email', field: 'email', width: 250, },
+    { headerName: 'Actions', field: 'action', width: 180,
       cellRenderer: BtnCellRendererComponent,
       cellRendererParams: {
       edit: (row: any) => {
@@ -55,7 +57,18 @@ export class HomeComponent implements OnInit {
             this.ngOnInit()
           }
         })
-      }
+      },
+        delete: (id: number) => {
+          this.dataService.deletePartners(id)
+              .subscribe({
+                next:() => {
+                  console.log('Partner delete')
+                },
+                error:(err) => {
+                  console.log(err)
+                }
+              })
+        }
       },
     },
   ];

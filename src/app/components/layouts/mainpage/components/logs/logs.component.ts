@@ -23,7 +23,10 @@ export class LogsComponent implements OnInit {
   columnDefs = [
     { headerName: 'User name', field: 'username' },
     { headerName: 'Event', field: 'event' },
-    { headerName: 'Date', field: 'date' }
+    { headerName: 'Date', field: 'date', cellRenderer: (data: any) => {
+        return data.value ? (new Date(data.value)).toLocaleDateString('eu-UA',
+            { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'}) : '';
+      } }
   ];
 
   ngOnInit() {

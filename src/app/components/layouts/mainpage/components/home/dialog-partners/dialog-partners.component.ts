@@ -10,7 +10,6 @@ import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog
 })
 export class DialogPartnersComponent implements OnInit {
 
-
     partnersForm!: FormGroup;
     actionBtn: string = "Save";
     gridApi: any;
@@ -56,7 +55,7 @@ export class DialogPartnersComponent implements OnInit {
     }
   }
 
-  updatePartner () {
+  updatePartner() {
         this.dataService.putPartners(this.partnersForm.value, this.editData.id)
             .subscribe({
                 next: () => {
@@ -67,6 +66,6 @@ export class DialogPartnersComponent implements OnInit {
                     console.log(err)
                 }
             })
-  }
+    }
 
 }

@@ -1,4 +1,14 @@
+<section>
+<div class="example-button-row">
 <button
-        class="btn ag-dialog"
-        (click)="btnClickedHandler(this.row)"
->Edit</button>
+        mat-raised-button color="primary"
+        (click)="btnClickedHandler(row)"
+><i class="fas fa-edit"></i></button>
+
+<button
+        style="margin-left: 10px"
+        mat-raised-button color="warn"
+        (click)="btnDeleteHandler(row.id)"
+><i class="fa fa-trash" aria-hidden="true"></i></button>
+    </div>
+    </section>
