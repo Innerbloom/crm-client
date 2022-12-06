@@ -19,8 +19,6 @@ export class HomeComponent implements OnInit {
   public subscription: Subscription = new Subscription();
   public partners: Partners[] = [];
   public row: any;
-  public id: number | undefined
-
 
   constructor(private dataService: DataService, private dialog: MatDialog,) { }
 
@@ -62,7 +60,7 @@ export class HomeComponent implements OnInit {
           this.dataService.deletePartners(id)
               .subscribe({
                 next:() => {
-                  console.log('Partner delete')
+                  this.ngOnInit()
                 },
                 error:(err) => {
                   console.log(err)

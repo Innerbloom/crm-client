@@ -9,7 +9,6 @@ import {ICellRendererAngularComp} from "ag-grid-angular";
 export class BtnCellRendererComponent implements ICellRendererAngularComp {
 
   @Input() row: any;
-  @Input() id: number | undefined;
 
   agInit(row: any): void {
     this.row = row;
@@ -20,7 +19,7 @@ export class BtnCellRendererComponent implements ICellRendererAngularComp {
   }
 
   btnDeleteHandler(id: number) {
-    this.row.delete(this.id)
+    this.row.delete(this.row.data.id)
   }
 
   refresh(params: any): boolean {

@@ -29,7 +29,7 @@ export class DataService {
     }
 
     public deletePartners(id: number) {
-        return this.http.delete<any>(environment.apiURL + '/partners/'+id);
+        return this.http.delete(environment.apiURL + '/partners/'+id);
     }
 }
 
