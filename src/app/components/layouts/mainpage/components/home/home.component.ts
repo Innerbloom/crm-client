@@ -5,6 +5,7 @@ import {Subscription} from "rxjs";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogPartnersComponent} from "./dialog-partners/dialog-partners.component";
 import {BtnCellRendererComponent} from "./ag-greed-partners/btn-cell-renderer/btn-cell-renderer.component";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -20,7 +21,9 @@ export class HomeComponent implements OnInit {
   public partners: Partners[] = [];
   public row: any;
 
-  constructor(private dataService: DataService, private dialog: MatDialog,) { }
+  constructor(private dataService: DataService,
+              private toast: ToastrService,
+              private dialog: MatDialog,) { }
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
@@ -60,6 +63,7 @@ export class HomeComponent implements OnInit {
           this.dataService.deletePartners(id)
               .subscribe({
                 next:() => {
+                  this.toast.error(`Partner removed.`)
                   this.ngOnInit()
                 },
                 error:(err) => {

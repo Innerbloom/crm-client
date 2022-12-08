@@ -15,8 +15,15 @@ app-sidebar {
   transition: width 250ms ease-in;
 }
 
+@media screen and (min-width: 540px) {
+  .app-side-nav-open {
+    width: 220px;
+  }
+}
+
 .app-side-nav-open {
   width: 220px;
+  display: grid;
 }
 
 .display-area {

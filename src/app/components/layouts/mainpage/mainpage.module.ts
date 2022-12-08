@@ -19,6 +19,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BtnCellRendererComponent } from './components/home/ag-greed-partners/btn-cell-renderer/btn-cell-renderer.component';
+import {ToastrModule} from "ngx-toastr";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 @NgModule({
     declarations: [
         FooterComponent,
@@ -51,6 +53,13 @@ import { BtnCellRendererComponent } from './components/home/ag-greed-partners/bt
         MatButtonModule,
         FormsModule,
         ReactiveFormsModule,
+        ToastrModule.forRoot({
+            timeOut: 10000,
+            positionClass: 'toast-top-right',
+            maxOpened: 2,
+            closeButton: true
+        }),
+        MatSlideToggleModule,
     ],
     providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }, { provide: MatDialogRef, useValue: {} }],
 

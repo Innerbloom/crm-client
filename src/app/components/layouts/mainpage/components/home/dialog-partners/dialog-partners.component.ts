@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {DataService} from "../../../../../../services/data.service";
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-dialog-partners',
@@ -17,6 +18,7 @@ export class DialogPartnersComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder,
                 private dataService: DataService,
+                private toast: ToastrService,
                 private dialogRef: MatDialogRef<DialogPartnersComponent>,
                 @Inject(MAT_DIALOG_DATA) public editData: any
     ) { }
@@ -42,6 +44,7 @@ export class DialogPartnersComponent implements OnInit {
             this.dataService.postPartners(this.partnersForm.value)
                 .subscribe({
                     next:() => {
+                        this.toast.success(`Partner added.`)
                         this.partnersForm.reset();
                         this.dialogRef.close('save');
                     },
@@ -59,6 +62,7 @@ export class DialogPartnersComponent implements OnInit {
         this.dataService.putPartners(this.partnersForm.value, this.editData.id)
             .subscribe({
                 next: () => {
+                    this.toast.warning(`Partner edited.`)
                     this.partnersForm.reset();
                     this.dialogRef.close('update');
                 },
