@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output, Renderer2} from '@angular/core';
 import {AuthService} from "../../../../../services/auth.service";
+import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'app-header',
@@ -10,22 +11,35 @@ export class HeaderComponent implements OnInit {
 
   @Output() sideNavToggled = new EventEmitter<boolean>();
   menuStatus: boolean = false;
+  theme: Theme = 'light-theme'
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              @Inject(DOCUMENT) private document: Document,
+              private renderer: Renderer2) {
   }
 
 
   ngOnInit(): void {
+    this.initializeTheme()
   }
+
+  switchTheme() {
+    this.document.body.classList.replace(this.theme, this.theme === 'light-theme' ?
+        (this.theme = 'dark-theme') : (this.theme = 'light-theme')
+    )
+  }
+
+  initializeTheme = (): void =>
+      this.renderer.addClass(this.document.body, this.theme)
 
   logout() {
     this.authService.logout()
   }
 
-
   SideNavToggled() {
     this.menuStatus = !this.menuStatus;
     this.sideNavToggled.emit(this.menuStatus);
   }
-
 }
+
+export type Theme = 'light-theme' | 'dark-theme'

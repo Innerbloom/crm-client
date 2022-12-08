@@ -15,7 +15,9 @@
             <ul class="navbar nav ml-auto">
                 <li>
 
-                    <mat-slide-toggle>Dark Mode</mat-slide-toggle>
+                    <mat-slide-toggle
+                            (click)="switchTheme()"
+                    >{{theme === 'light-theme' ? 'Switch to Dark' : 'Switch to Light'}}</mat-slide-toggle>
 <!--                    <a
                             routerLinkActive="active"
                             class="text-info text-decoration-none ms-3 p-1"
