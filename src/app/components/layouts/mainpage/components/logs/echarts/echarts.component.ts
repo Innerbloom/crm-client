@@ -3,7 +3,6 @@ import {EChartsOption} from "echarts";
 import * as echarts from "echarts";
 import {Chart} from "../../../../../../services/interfaces";
 
-
 @Component({
   selector: 'app-echarts',
   templateUrl: './echarts.component.html',

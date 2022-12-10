@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Logs} from "../../../../../../services/interfaces";
+import {Theme} from "../../header/header.component";
 
 @Component({
   selector: 'app-aggreed',
