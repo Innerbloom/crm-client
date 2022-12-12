@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {EChartsOption} from "echarts";
 import * as echarts from "echarts";
 import {Chart} from "../../../../../../services/interfaces";
@@ -11,7 +11,7 @@ import {Theme} from "../../header/header.component";
 })
 
 
-export class EchartsComponent implements AfterViewInit{
+export class EchartsComponent implements AfterViewInit {
 
   @ViewChild('chartContainer', {static: false}) public chartContainer!: ElementRef;
   @Input() chart: Chart | undefined;

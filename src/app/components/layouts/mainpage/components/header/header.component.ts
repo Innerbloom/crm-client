@@ -2,6 +2,7 @@ import {AfterViewInit, Component, EventEmitter, Inject, OnInit, Output, Renderer
 import {AuthService} from "../../../../../services/auth.service";
 import {DOCUMENT} from "@angular/common";
 import {BehaviorSubject, Observable} from "rxjs";
+import {log} from "echarts/types/src/util/log";
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,7 @@ export class HeaderComponent implements OnInit {
   @Output() sideNavToggled = new EventEmitter<boolean>();
   menuStatus: boolean = false;
   theme: Theme = 'light-theme'
-
-  public themeTable = new BehaviorSubject('ag-theme-alpine');
+  themeTable = new BehaviorSubject('ag-theme-alpine');
 
   constructor(private authService: AuthService,
               @Inject(DOCUMENT) private document: Document,
@@ -24,7 +24,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.initializeTheme()
   }
-
 
   switchTheme() {
     this.document.body.classList.replace(this.theme, this.theme === 'light-theme' ?
@@ -36,6 +35,7 @@ export class HeaderComponent implements OnInit {
     } else {
       this.themeTable.next('ag-theme-alpine')
     }
+    return this.themeTable.value;
   }
 
   initializeTheme = (): void =>
@@ -46,8 +46,8 @@ export class HeaderComponent implements OnInit {
     this.sideNavToggled.emit(this.menuStatus);
   }
 
-  logout() {
-    this.authService.logout()
+  logout(): void {
+    this.authService.logout().then(res => console.log(res)).catch(err => console.log(err));
   }
 }
 

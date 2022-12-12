@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Partners} from "../../../../../../services/interfaces";
 import {BehaviorSubject, Observable} from "rxjs";
 import {values} from "ag-grid-community/dist/lib/utils/generic";
@@ -9,10 +9,11 @@ import {HeaderComponent} from "../../header/header.component";
   templateUrl: './ag-grid-partners.component.html',
   styleUrls: ['./ag-grid-partners.component.scss']
 })
-export class AgGridPartnersComponent implements OnInit {
+export class AgGridPartnersComponent implements OnInit, OnChanges {
 
   @Input() partners: Partners[] = [];
   @Input() columnDef: any[] = []
+
 
   gridApi: any;
   gridColumnApi: any;
@@ -29,6 +30,9 @@ export class AgGridPartnersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
   }
 
 }
