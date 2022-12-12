@@ -7,37 +7,55 @@
 @import 'ngx-toastr/toastr';
 
 
+
+
 .toast-top-right {
   margin-top: 70px;
 }
 
+//THEMES
 .light-theme {
-  --background-color: rgb(255,255,255);
-  --sidebar-color: rgba(34, 34, 34, 1);
-  --open-dialog-button: rgb(27, 27, 27); //кнопка диалога home
-  --open-dialog-button-text-color: rgb(27, 27, 27); //кнопка диалога home
-  --fa-user-color: rgb(27, 27, 27); //иконка диалога home
-  --text-color: rgb(19, 19, 19);
+  --background-color: rgb(245,245,245); //background layout
+  --sidebar-color: rgba(255, 249, 180, 0.3); //sidebar Color
 
-  --echarts-text-color: rgb(27,27,27);
+  --footer-header-color: rgb(255, 255, 255); // Footer header background color
+
+  --border-line: 1px solid rgb(220, 220, 220); // Только в белой теме линия Хедер футер
+  --text-color-header-footer: rgb(27, 27, 27); // Текст в Хедер и футер
+
+  --fa-solid: rgb(70, 70, 70); // Гамбургер
+
+  --open-dialog-button: rgb(27, 27, 27); //кнопка диалога home
+  --open-dialog-button-text-color: rgb(255, 255, 255); //кнопка диалога home Hover
+  --bs-btn-hover: rgb(27, 27, 27); // open dialog Hover
+
+  --sidebar-text-color: rgb(70, 70, 70); //Cайдбар контент
+
 }
 
 .dark-theme {
-  --background-color: rgb(45, 45, 45);
-  --sidebar-color: rgb(27, 27, 27);
-  --open-dialog-button: rgb(255, 255, 255); //кнопка диалога home
-  --open-dialog-button-text-color: rgb(255, 255, 255); //кнопка диалога home
-  --fa-user-color: rgb(255, 255, 255); //иконка диалога home
-  --text-color: rgb(255, 255, 255);
+  --background-color: rgb(45, 45, 45); //background layout
+  --sidebar-color: rgb(27, 27, 27); //sidebar Color
 
-  --echarts-text-color: rgb(255,255,255);
+  --footer-header-color: rgb(33, 37, 41); // Footer header background color
+  --text-color-header-footer: rgb(255, 255, 255);// Текст в Хедер и футер
+
+  --fa-solid: rgb(255, 255, 255); // Гамбургер
+
+  --open-dialog-button: rgb(255, 255, 255); //кнопка диалога home
+  --open-dialog-button-text-color: rgb(27, 27, 27); //кнопка диалога home Hover
+  --text-color: rgb(255, 255, 255);//fs5 Text Color
+  --bs-btn-hover: rgb(225, 225, 225);// open dialog Hover
+
+  --sidebar-text-color: rgb(255, 255, 255); //Cайдбар контент
 }
 
 
-body {
+
+
+body { // background layout
   background: var(--background-color);
 }
-
-.fs-5 {
+.fs-5 { // text
   color: var(--text-color);
 }

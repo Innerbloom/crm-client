@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Inject, OnInit, Output, Renderer2} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Inject, OnInit, Output, Renderer2} from '@angular/core';
 import {AuthService} from "../../../../../services/auth.service";
 import {DOCUMENT} from "@angular/common";
 import {BehaviorSubject, Observable} from "rxjs";
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   menuStatus: boolean = false;
   theme: Theme = 'light-theme'
 
-  themeTable = new BehaviorSubject('ag-theme-alpine')
+  public themeTable = new BehaviorSubject('ag-theme-alpine');
 
   constructor(private authService: AuthService,
               @Inject(DOCUMENT) private document: Document,
@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
     this.document.body.classList.replace(this.theme, this.theme === 'light-theme' ?
         (this.theme = 'dark-theme') : (this.theme = 'light-theme')
     )
+    ///// TEST
     if (this.theme === 'dark-theme') {
       this.themeTable.next('ag-theme-alpine-dark')
     } else {

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Partners} from "../../../../../../services/interfaces";
 import {BehaviorSubject, Observable} from "rxjs";
 import {values} from "ag-grid-community/dist/lib/utils/generic";
+import {HeaderComponent} from "../../header/header.component";
 
 @Component({
   selector: 'app-ag-greed-partners',
@@ -12,7 +13,6 @@ export class AgGridPartnersComponent implements OnInit {
 
   @Input() partners: Partners[] = [];
   @Input() columnDef: any[] = []
-  @Input() themeTable!: string;
 
   gridApi: any;
   gridColumnApi: any;
@@ -29,7 +29,6 @@ export class AgGridPartnersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(JSON.stringify(this.themeTable))
   }
 
 }

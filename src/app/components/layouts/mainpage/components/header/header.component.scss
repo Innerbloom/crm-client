@@ -3,11 +3,25 @@ nav {
 }
 
 #header {
+  background-color: var(--footer-header-color);
+  border-bottom: var(--border-line);
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   z-index: 999;
+}
+
+.textHeader {
+  color: var(--text-color-header-footer);
+}
+
+#themeToggle {
+  color: var(--text-color-header-footer);
+}
+
+.fa-solid {
+  color: var(--fa-solid);
 }
 
 .side-nav-button {
@@ -19,11 +33,15 @@ nav {
 }
 
 .btn {
-  background-color: #ffffff;
+  margin-right: 10px;
+  --bs-btn-color: var(--open-dialog-button);
+  --bs-btn-border-color: var(--open-dialog-button);
+  --bs-btn-hover-bg: var(--bs-btn-hover);
+  --bs-btn-hover-color: var(--open-dialog-button-text-color);
 }
 
 .side-nav-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(126, 126, 126, 0.16);
   border-radius: 30%;
 }
 
