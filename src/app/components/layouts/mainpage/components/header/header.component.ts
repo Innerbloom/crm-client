@@ -1,8 +1,6 @@
-import {AfterViewInit, Component, EventEmitter, Inject, OnInit, Output, Renderer2} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../../../../services/auth.service";
-import {DOCUMENT} from "@angular/common";
-import {BehaviorSubject, Observable} from "rxjs";
-import {log} from "echarts/types/src/util/log";
+import {ThemeService} from "../../../../../services/theme.service";
 
 @Component({
   selector: 'app-header',
@@ -13,33 +11,14 @@ export class HeaderComponent implements OnInit {
 
   @Output() sideNavToggled = new EventEmitter<boolean>();
   menuStatus: boolean = false;
-  theme: Theme = 'light-theme'
-  themeTable = new BehaviorSubject('ag-theme-alpine');
 
   constructor(private authService: AuthService,
-              @Inject(DOCUMENT) private document: Document,
-              private renderer: Renderer2) { }
+              public themeService: ThemeService) { }
 
 
   ngOnInit(): void {
-    this.initializeTheme()
+   this.themeService.initializeTheme()
   }
-
-  switchTheme() {
-    this.document.body.classList.replace(this.theme, this.theme === 'light-theme' ?
-        (this.theme = 'dark-theme') : (this.theme = 'light-theme')
-    )
-    ///// TEST
-    if (this.theme === 'dark-theme') {
-      this.themeTable.next('ag-theme-alpine-dark')
-    } else {
-      this.themeTable.next('ag-theme-alpine')
-    }
-    return this.themeTable.value;
-  }
-
-  initializeTheme = (): void =>
-      this.renderer.addClass(this.document.body, this.theme)
 
   SideNavToggled() {
     this.menuStatus = !this.menuStatus;

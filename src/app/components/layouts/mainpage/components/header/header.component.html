@@ -18,8 +18,8 @@
                     <mat-slide-toggle
                             color="primary"
                             id="themeToggle"
-                            (click)="switchTheme()"
-                    >{{theme === 'light-theme' ? 'Switch to Dark' : 'Switch to Light'}}
+                            (click)="themeService.switchTheme()"
+                    >{{themeService.theme === 'light-theme' ? 'Switch to Dark' : 'Switch to Light'}}
                     </mat-slide-toggle>
 
                 </li>

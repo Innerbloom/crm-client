@@ -1,8 +1,7 @@
-import {AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {EChartsOption} from "echarts";
 import * as echarts from "echarts";
 import {Chart} from "../../../../../../services/interfaces";
-import {Theme} from "../../header/header.component";
 
 @Component({
   selector: 'app-echarts',

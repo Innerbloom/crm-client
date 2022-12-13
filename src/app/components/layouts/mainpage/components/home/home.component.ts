@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Partners} from "../../../../../services/interfaces";
 import {DataService} from "../../../../../services/data.service";
 import {Subscription} from "rxjs";
@@ -6,8 +6,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogPartnersComponent} from "./dialog-partners/dialog-partners.component";
 import {BtnCellRendererComponent} from "./ag-greed-partners/btn-cell-renderer/btn-cell-renderer.component";
 import {ToastrService} from "ngx-toastr";
-import {values} from "ag-grid-community/dist/lib/utils/generic";
-import {Theme} from "../header/header.component";
+import {ThemeService} from "../../../../../services/theme.service";
 
 
 @Component({
@@ -24,6 +23,7 @@ export class HomeComponent implements OnInit {
   public row: any;
 
   constructor(private dataService: DataService,
+              public themeService: ThemeService,
               private toast: ToastrService,
               private dialog: MatDialog,) { }
 
