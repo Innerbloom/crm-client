@@ -1,11 +1,16 @@
 .ag-theme-alpine {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--ag-box-shadow);
   display: flex;
   --ag-font-size: 13px;
   --ag-font-family: Roboto,sans-serif;
+  --ag-background-color: var(--ag-background-colors);
+  --ag-odd-row-background-color: var(--ag--odd-background-colors);
+  --ag-data-color: var(--data-color);
 }
 
 .ag-header {
+  --ag-header-background-color: var(--ag-background-colors);
+  --ag-header-foreground-color: var(--data-color);
   display: flex;
   font-size: 14px;
 }
