@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {ThemeService} from "../../../services/theme.service";
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-mainpage.dashboard',
@@ -7,10 +6,16 @@ import {ThemeService} from "../../../services/theme.service";
   styleUrls: ['./mainpage.component.scss']
 })
 export class MainpageComponent implements OnInit {
-  sideNavStatus: boolean = false;
+
+ sideNavStatus: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  closeSidebar() {
+      console.log('Click')
+  }
+
 }

@@ -13,7 +13,6 @@ import {AgGridModule} from "ag-grid-angular";
 import {LogsComponent} from "./components/layouts/mainpage/components/logs/logs.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule} from "@angular/material/button";
-import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
     declarations: [

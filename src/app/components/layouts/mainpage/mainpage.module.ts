@@ -21,6 +21,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BtnCellRendererComponent } from './components/home/ag-greed-partners/btn-cell-renderer/btn-cell-renderer.component';
 import {ToastrModule} from "ngx-toastr";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+
+
 @NgModule({
     declarations: [
         FooterComponent,

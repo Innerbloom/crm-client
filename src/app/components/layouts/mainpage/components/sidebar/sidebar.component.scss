@@ -4,6 +4,7 @@
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
+  z-index: 1;
 }
 
 .nav-list {
@@ -33,6 +34,7 @@
   text-align: center;
   line-height: 25px;
 }
+
 .nav-list-item span {
   width: 170px;
   text-transform: capitalize;
@@ -42,4 +44,3 @@ a {
   text-decoration: none;
   color: var(--sidebar-text-color);
 }
-

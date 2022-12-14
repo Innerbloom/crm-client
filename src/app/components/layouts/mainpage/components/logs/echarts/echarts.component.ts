@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
-import {EChartsOption} from "echarts";
+import {color, EChartsOption} from "echarts";
 import * as echarts from "echarts";
 import {Chart} from "../../../../../../services/interfaces";
 
@@ -21,6 +21,9 @@ export class EchartsComponent implements AfterViewInit {
 
     const option: EChartsOption = {
       title: {
+        textStyle: {
+          color: '#2d6879'
+        },
         text: this.chart ? this.chart.title: '',
         left: 90
       },

@@ -1,12 +1,33 @@
+@import '@angular/material/theming';
+
+.mat-dialog-title {
+  color: var(--dialog-title-color);
+}
+
 .ag-dialog {
   width: 70%;
   background: rgb(148, 148, 148);
 }
 
-.mat-form-field {
-  width: 100%;
+.mat-option {
+  background: var(--mat-dialog-background-color);
+  color: var(--mat-dialog-text-color);
 }
 
-::ng-deep mat-dialog-container {
+.mat-select-value-text {
+  color: var(--mat-select-value-color)
+}
+
+::ng-deep .mat-select-panel {
+  background-color: var(--mat-select-active-panel);
+}
+
+.mat-form-field {
+  width: 100%;
+  color: var(--mat-dialog-text-color)
+}
+
+::ng-deep .mat-dialog-container {
+  background: var(--mat-dialog-background-color);
   border-radius: 15px !important;
 }

@@ -9,8 +9,11 @@ import {List} from "../../../../../services/interfaces";
 
 export class SidebarComponent implements OnInit {
 
+  constructor(private elementRef: ElementRef) { }
+
   @Input() sideNavStatus: boolean = false;
-  @Output() clickSidebar = new EventEmitter<MouseEvent>();
+  @Output() public clickOutside = new EventEmitter<MouseEvent>();
+
 
      public list: List[] = [
     {
@@ -37,8 +40,6 @@ export class SidebarComponent implements OnInit {
     }
   ]
 
-  constructor(private elementRef: ElementRef) { }
-
      @HostListener('document: click', ['$event', '$event.target'])
      public onClick(event: MouseEvent, targetElement: HTMLElement) : void {
        if(!targetElement) {
@@ -46,11 +47,12 @@ export class SidebarComponent implements OnInit {
        }
        const clickedInside = this.elementRef.nativeElement.contains(targetElement);
        if(!clickedInside) {
-         this.clickSidebar.emit(event);
+         this.clickOutside.emit(event);
        }
      }
 
-  ngOnInit(): void {
-  }
 
+     ngOnInit(): void {
+
+     }
 }
