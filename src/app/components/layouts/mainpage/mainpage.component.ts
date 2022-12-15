@@ -15,7 +15,6 @@ export class MainpageComponent implements OnInit {
   }
 
   closeSidebar() {
-      console.log('Click')
   }
 
 }
