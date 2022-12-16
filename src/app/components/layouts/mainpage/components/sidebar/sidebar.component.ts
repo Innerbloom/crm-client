@@ -50,9 +50,5 @@ export class SidebarComponent implements OnInit {
          this.clickOutside.emit(event);
        }
      }
-
-     ngOnInit(): void {
-
-     }
-
+     ngOnInit(): void { }
 }

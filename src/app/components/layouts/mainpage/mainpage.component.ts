@@ -1,10 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-mainpage.dashboard',
   templateUrl: './mainpage.component.html',
   styleUrls: ['./mainpage.component.scss']
 })
+
 export class MainpageComponent implements OnInit {
 
  sideNavStatus: boolean = false;
@@ -12,9 +13,11 @@ export class MainpageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   closeSidebar() {
+
   }
 
 }

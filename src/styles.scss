@@ -6,84 +6,14 @@
 @import 'bootstrap/scss/functions';
 @import 'ngx-toastr/toastr';
 
+@import "themes/light.theme";
+@import "themes/dark.theme";
 
 
 .toast-top-right {
   margin-top: 70px;
 }
 
-//THEMES
-.light-theme {
-  --background-color: rgb(245,245,245); //background layout
-  --sidebar-color: rgb(255, 250, 204); //sidebar Color
-
-  --footer-header-color: rgb(255, 255, 255); // Footer header background color
-
-  --border-line: 1px solid rgb(220, 220, 220); // Только в белой теме линия Хедер футер
-  --text-color-header-footer: rgb(27, 27, 27); // Текст в Хедер и футер
-
-  --fa-solid: rgb(70, 70, 70); // Гамбургер
-
-  --open-dialog-button: rgb(27, 27, 27); //кнопка диалога home
-  --open-dialog-button-text-color: rgb(255, 255, 255); //кнопка диалога home Hover
-  --bs-btn-hover: rgb(27, 27, 27); // open dialog Hover
-
-  //Open dialog window
-  --dialog-title-color: rgb(27, 27, 27);
-  --mat-dialog-background-color: rgb(255, 255, 255);
-  --mat-dialog-text-color: rgb(25, 25, 25);
-  --mat-form-field-label: rgb(0, 0, 0);
-  --mat-select-active-panel: rgb(230, 230, 230);
-  --mat-select-value-color: rgb(27, 27, 27);
-
-  --sidebar-text-color: rgb(70, 70, 70); //Cайдбар контент
-
-  //AgGrid Table
-  --ag-background-colors: rgb(255, 255, 255);
-  --ag--odd-background-colors: rgb(245, 245, 245);
-  --data-color: rgb(27, 27, 27);
-  --ag-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-}
-
-
-
-.dark-theme {
-  --background-color: rgb(45, 45, 45); //background layout
-  --sidebar-color: rgb(27, 27, 27); //sidebar Color
-
-  //Footer, Header
-  --footer-header-color: rgb(33, 37, 41); // Footer header background color
-  --text-color-header-footer: rgb(255, 255, 255);// Текст в Хедер и футер
-
-  //Hamburgerg open sidebar
-  --fa-solid: rgb(255, 255, 255); // Гамбургер
-
-  //open Dialog button
-  --open-dialog-button: rgb(255, 255, 255); //кнопка диалога home
-  --open-dialog-button-text-color: rgb(27, 27, 27); //кнопка диалога home Hover
-  --text-color: rgb(255, 255, 255);//fs5 Text Color
-  --bs-btn-hover: rgb(225, 225, 225);// open dialog Hover
-  //Open dialog window
-  --dialog-title-color: rgb(255, 255, 255);
-  --mat-dialog-background-color: rgb(50, 50, 50);
-  --mat-dialog-text-color: rgb(255, 255, 255);
-  --mat-form-field-label: rgb(255, 255, 255);
-  --mat-select-active-panel: rgb(27, 27, 27);
-  --mat-select-value-color: rgb(255, 255, 255);
-
-  --sidebar-text-color: rgb(255, 255, 255); //Cайдбар контент
-
-  //AgGrid Table
-  --ag-background-colors: rgb(27, 27, 27);
-  --ag--odd-background-colors: rgb(35, 35, 35);
-  --data-color: rgb(255, 255, 255);
-  --ag-box-shadow: 0px 0px 10px rgba(186, 191, 199, 0.4);
-}
-
 body { // background layout
   background: var(--background-color);
-}
-
-.fs-5 { // text
-  color: var(--text-color);
 }
